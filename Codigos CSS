@@ -84,3 +84,77 @@
         opacity: 0;
     }
 }
+
+/* Contador de Años */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador de Años</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+    .contador-container-b {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centra horizontalmente */
+    }
+
+    .contador-b {
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        font-size: 60px;
+        /* background: linear-gradient(to bottom, #96D934, #C5EE27); */
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        opacity: 0; /* Inicialmente oculto */
+        transition: opacity 1s ease-in-out;
+        color: #f79c19;
+    }
+
+    
+
+    @media (max-width: 768px) {
+        .contador-b {
+            font-size: 60px; /* Ajustar el tamaño de fuente para pantallas más pequeñas */
+        }
+
+        
+    }
+</style>
+
+<!-- Contenedor para el contador de 9 Años -->
+<div id="counterContainerB" class="contador-container-b">
+    <span class="contador-b" id="counterB">0</span>
+</div>
+
+<script>
+    const contadorB = document.getElementById('counterB');
+    let numeroB = 0;
+    const objetivoB = 6;
+    const velocidadB = 450; // Puedes ajustar la velocidad de incremento
+
+    function actualizarContadorB() {
+        if (numeroB < objetivoB) {
+            numeroB += 1;
+            contadorB.textContent = numeroB;
+            setTimeout(actualizarContadorB, velocidadB);
+        }
+    }
+
+    function handleIntersectionB(entries, observer) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                actualizarContadorB();
+                contadorB.style.opacity = 1;
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    const optionsB = {
+        threshold: 0.5,
+    };
+
+    const observerB = new IntersectionObserver(handleIntersectionB, optionsB);
+    observerB.observe(contadorB);
+</script>

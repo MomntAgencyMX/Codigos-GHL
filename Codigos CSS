@@ -179,6 +179,8 @@
     animation: parpadeo 1s infinite;
 }
 
+
+/* Cambiar color de "Play Video" */
 .hosted-video-thumbnail:hover:after {
     background-color: red!important;
 }

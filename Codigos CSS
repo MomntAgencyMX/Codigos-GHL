@@ -178,3 +178,7 @@
 .parpadeo {
     animation: parpadeo 1s infinite;
 }
+
+.hosted-video-thumbnail:hover:after {
+    background-color: red!important;
+}

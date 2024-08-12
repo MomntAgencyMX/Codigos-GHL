@@ -184,3 +184,9 @@
 .hosted-video-thumbnail:hover:after {
     background-color: red!important;
 }
+
+/* Aplicación de la animación a la clase "parpadeo" */
+.parpadeo {
+    animation: parpadeo 1s infinite;
+}
+

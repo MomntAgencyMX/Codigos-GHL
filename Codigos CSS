@@ -221,3 +221,65 @@
     box-shadow: 0 4px 15px 0 rgba(68, 88, 74, 0.75);
 }
 
+*CODIGO PARA SLIDERS CON EFECTO*
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternancia de Imágenes con Efecto de Degradado</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #image-container-2 {
+    position: center;
+    width: 90%; /* Ajusta el tamaño según tus necesidades */
+    height: 80vh; /* Ajusta el tamaño según tus necesidades */
+    overflow: hidden;
+  }
+  #image-container-2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+  }
+  #image-container-2 img.active-2 {
+    opacity: 1;
+  }
+  
+  @media screen and (max-width: 768px) { 
+    #image-container-2 {
+    position: center;
+    width: 90%; /* Ajusta el tamaño según tus necesidades */
+    height: 40vh; /* Ajusta el tamaño según tus necesidades */
+    overflow: hidden;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="image-container-2">
+  <img src="https://storage.googleapis.com/msgsndr/11Tu6WSGKtvSwCpvLze1/media/664545af0a61a558425398a1.jpeg" class="active-2">
+  <img src="https://storage.googleapis.com/msgsndr/11Tu6WSGKtvSwCpvLze1/media/664545afe7e99b655a6ef714.jpeg">
+</div>
+<script>
+  const images2 = document.querySelectorAll('#image-container-2 img');
+  let activeIndex2 = 0;
+
+  setInterval(() => {
+    images2[activeIndex2].classList.remove('active-2');
+    activeIndex2 = (activeIndex2 + 1) % images2.length;
+    images2[activeIndex2].classList.add('active-2');
+  }, 3000); // Cambia el tiempo según tu preferencia de duración de cada imagen
+</script>
+</body>
+</html>
+
+

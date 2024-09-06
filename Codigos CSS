@@ -337,3 +337,18 @@
 .ov-btn-slide-close:hover:after {
     left: 50%;
 }
+
+*CODIGO PARA efecto pulsante en boton*
+.elButton {
+animation: glow 1500ms infinite;
+background-color: #2CB67D !important;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: #2CB67D 0 0 0 0;
+  }
+  75% {
+    box-shadow: #2CB67D00 0 0 0 10px;
+  }
+}

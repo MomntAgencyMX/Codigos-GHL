@@ -497,3 +497,118 @@ EFECTO DE CONFETTI EN PANTALLA
         resizeCanvas();
     });
 </script>
+
+*****SLIDER VERTICAL****
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slider Vertical</title>
+<style>
+    .slider-container {
+        width: 100%; /* Ancho del slider */
+        height: 800px; /* Altura del slider */
+        overflow: hidden; /* Para ocultar las imágenes adicionales */
+        margin: 0 auto; /* Centra el slider horizontalmente */
+    }
+
+    .slider {
+        width: 100%;
+        height: 800px; /* Altura total del slider (número de imágenes * altura de cada imagen) */
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out; /* Transición suave entre diapositivas */
+    }
+
+    .slide {
+        width: 100%;
+         height: 47%; /* Ajusta la altura de cada slide (menos del 50% para dar espacio) */
+        margin-bottom: 25px; /* Agrega espacio entre slides */
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ajusta las imágenes al tamaño del contenedor */
+    }
+  
+  
+    /* Media query para dispositivos móviles */
+  @media screen and (max-width: 768px) { 
+    
+    .slider-container {
+       
+        height: 500px; /* Altura del slider */
+       
+    }
+    
+   .slider {
+         
+        height: 300px; /* Altura total del slider (número de imágenes * altura de cada imagen) */
+         
+    }
+    
+    .slide {
+         
+        width: 100%;
+         height: 70%; /* Ajusta la altura de cada slide (menos del 50% para dar espacio) */
+        margin-bottom: 15px; /* Agrega espacio entre slides */
+         
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        
+    }
+    
+    }
+    
+    
+    
+</style>
+
+
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide">
+            <img src="https://storage.googleapis.com/msgsndr/9Dl6JTNQHR0p52eC7Zi6/media/658290c45567c09bdaf35ac4.jpeg" alt="Imagen 1">
+        </div>
+        <div class="slide">
+            <img src="https://storage.googleapis.com/msgsndr/9Dl6JTNQHR0p52eC7Zi6/media/6582909f5567c010a9f35abe.jpeg" alt="Imagen 2">
+        </div>
+        <div class="slide">
+            <img src="https://storage.googleapis.com/msgsndr/9Dl6JTNQHR0p52eC7Zi6/media/6582908fcd21c2dfa8685e11.jpeg" alt="Imagen 3">
+        </div>
+        <div class="slide">
+            <img src="https://storage.googleapis.com/msgsndr/9Dl6JTNQHR0p52eC7Zi6/media/6582906b5567c07702f35a39.jpeg" alt="Imagen 4">
+        </div>
+        <div class="slide">
+            <img src="https://storage.googleapis.com/msgsndr/9Dl6JTNQHR0p52eC7Zi6/media/65829050a0a47e3a982ec5ab.jpeg" alt="Imagen 5">
+        </div>
+        <div class="slide">
+            <img src="https://storage.googleapis.com/msgsndr/9Dl6JTNQHR0p52eC7Zi6/media/6582908fcd21c2dfa8685e11.jpeg" alt="Imagen 6">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+
+    let index = 0;
+
+    function showSlides() {
+        index++;
+        if (index >= slides.length - 1) {
+            index = 0;
+        }
+        slider.style.transform = `translateY(-${index * 50}%)`; /* Mueve el slider verticalmente */
+    }
+
+    setInterval(showSlides, 3000); /* Cambia de slide cada 3 segundos (3000ms) */
+</script>

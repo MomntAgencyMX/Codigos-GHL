@@ -826,4 +826,273 @@ BUTTON ESTILO BRONCE
     filter: saturate(110%) brightness(1.15);
 }
 
+* Contenedor del grid con scroll horizontal */ -----------
+.grid {
+    display: flex;
+    overflow-x: auto;
+  /* Permite desplazamiento horizontal */
+    scroll-snap-type: x mandatory;
+ /* Fija el desplazamiento en cada elemento */
+    -webkit-overflow-scrolling: touch;
+ /* Mejor scroll en dispositivos táctiles */
+    gap: 10px !important;
+ /* Espacio entre los elementos */
+    padding: 1rem 0;
+ /* Espaciado superior e inferior */
+}
+
+.grid::-webkit-scrollbar {
+    height: 8px;
+    background: #F1F1F1;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* Cada item dentro del grid */
+.item {
+    flex: 0 0 auto;
+ /* No se puede expandir, el tamaño depende de la imagen */
+    scroll-snap-align: start;
+ /* Alinea el elemento al inicio del contenedor */
+    border-radius: 10px;
+    overflow: hidden;
+ /* Para que las imágenes no sobresalgan */
+}
+/* Estilo para las imágenes */
+.img {
+    width: auto;
+ /* Mantiene el tamaño original de la imagen */
+    height: auto;
+ /* Mantiene el tamaño original de la imagen */
+    display: block;
+}
+
+.img img {
+    width: 100%;
+ /* Hace que la imagen ocupe el 100% del contenedor */
+    height: auto;
+ /* Mantiene la proporción original de la imagen */
+    object-fit: contain;
+ /* Ajusta la imagen manteniendo su proporción */
+    transition: transform 0.3s ease;
+}
+
+.img:hover img {
+    transform: scale(1.05);
+ /* Efecto de zoom al pasar el ratón */
+}
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .img {
+        width: 150px;
+        height: 250px;
+ /* Tamaño más pequeño de las imágenes */
+    }
+}
+
+@media (max-width: 480px) {
+    .img {
+        width: 100px;
+        height: 200px;
+ /* Tamaño aún más pequeño en móviles */
+    }
+}
+
+@import "https://unpkg.com/open-props";
+
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+.media-scroller {
+    --spacer: var(--size-3);
+    display: grid;
+    gap: var(--spacer);
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
+    padding: 0 var(--spacer) var(--spacer);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.media-scroller--with-groups {
+    grid-auto-columns: 80%;
+}
+
+.media-group {
+    display: grid;
+    gap: var(--spacer);
+    grid-auto-flow: column;
+}
+
+.media-element {
+    display: grid;
+    grid-template-rows: min-content;
+    padding: 10px;
+    background: var(--surface-2);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-2);
+}
+
+.media-element > img {
+    inline-size: 100%;
+    object-fit: cover;
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--spacer, 1rem);
+}
+
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
+/* general styling */
+.container {
+    inline-size: min(100% - 4rem, 70rem);
+    margin-inline: auto;
+}
+
+.flow {
+    display: grid;
+    gap: 10px;
+ /* Espaciado general */
+}
+
+.page-header {
+    padding-block: var(--size-9);
+    margin-block-end: var(--size-9);
+    background: var(--gradient-16);
+    color: var(--gray-0);
+    box-shadow: var(--shadow-2);
+}
+
+/* Contenedor del grid con scroll horizontal para celular */----------
+.grid-mobile {
+    display: flex;
+    overflow-x: auto;
+ /* Permite desplazamiento horizontal */
+    scroll-snap-type: x mandatory;
+ /* Fija el desplazamiento en cada elemento */
+    -webkit-overflow-scrolling: touch;
+ /* Mejor scroll en dispositivos táctiles */
+    gap: 10px !important;
+ /* Espacio entre los elementos */
+    padding: 1rem 0;
+ /* Espaciado superior e inferior */
+}
+
+.grid-mobile::-webkit-scrollbar {
+    height: 8px;
+    background: #F1F1F1;
+}
+
+.grid-mobile::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.grid-mobile::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Cada item dentro del grid */
+.item-mobile {
+    flex: 0 0 auto;
+ /* No se puede expandir, el tamaño depende de la imagen */
+    scroll-snap-align: start;
+ /* Alinea el elemento al inicio del contenedor */
+    border-radius: 10px;
+    overflow: hidden;
+ /* Para que las imágenes no sobresalgan */
+    margin-right: 10px;
+ /* Añade espacio entre los ítems */
+}
+
+/* Estilo para las imágenes */
+.img-mobile {
+    width: 210px;
+ /* Tamaño fijo para las imágenes */
+    height: 373px;
+ /* Tamaño fijo para las imágenes */
+    display: block;
+}
+
+.img-mobile img {
+    width: 100%;
+ /* Hace que la imagen ocupe el 100% del contenedor */
+    height: 100%;
+ /* La imagen ocupará todo el espacio disponible */
+    object-fit: cover;
+ /* Ajusta la imagen manteniendo su proporción */
+    transition: transform 0.3s ease;
+}
+
+.img-mobile:hover img {
+    transform: scale(1.05);
+ /* Efecto de zoom al pasar el ratón */
+}
+
+/* Responsividad para pantallas móviles (max-width: 768px) */
+@media (max-width: 768px) {
+    .grid-mobile {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 1rem 0;
+    }
+
+    .item-mobile {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-right: 10px;
+ /* Espaciado entre imágenes */
+    }
+
+    .img-mobile {
+        width: 210px;
+ /* Imagen ajustada para dispositivos móviles */
+        height: 373px;
+ /* Imagen ajustada para dispositivos móviles */
+    }
+}
+
+/* Responsividad adicional para dispositivos más pequeños (max-width: 480px) */
+@media (max-width: 480px) {
+    .grid-mobile {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 1rem 0;
+    }
+  
+  /* Ocultar barra de desplazamiento pero mantener el scroll funcional */
+    .grid-mobile::-webkit-scrollbar {
+        display: none;
+    }
+
+    .item-mobile {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-right: 10px;
+ /* Espaciado entre imágenes */
+    }
+
+    .img-mobile {
+        width: 210px;
+ /* Imagen ajustada para dispositivos móviles */
+        height: 373px;
+ /* Imagen ajustada para dispositivos móviles */
+    }
+}
+
+
 

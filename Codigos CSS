@@ -1094,5 +1094,39 @@ BUTTON ESTILO BRONCE
     }
 }
 
+SLIDER PARA ABOVES CON DEGRADADO
+:root {
+    --image-1: url('https://storage.googleapis.com/msgsndr/FSFWksgQn4nxtoKdFTJp/media/67507f9bb8cfdf343d5899db.webp');
+    --image-2: url('https://storage.googleapis.com/msgsndr/FSFWksgQn4nxtoKdFTJp/media/677d6936e3a7108ceddad134.webp');
+    --image-3: url('https://storage.googleapis.com/msgsndr/FSFWksgQn4nxtoKdFTJp/media/677d6dc7fb99541cb762a7de.webp');
+}
+
+@keyframes changeBackground {
+    0%, 20% {
+        background-image: var(--image-1);
+    }
+
+    30%, 50% {
+        background-image: var(--image-2);
+    }
+
+    60%, 80% {
+        background-image: var(--image-3);
+    }
+
+    90%, 100% {
+        background-image: var(--image-1);
+    }
+}
+
+#section-JWwFN2alOA {
+    animation: changeBackground 10s infinite;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease-in-out;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 
 

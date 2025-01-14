@@ -1128,5 +1128,116 @@ SLIDER PARA ABOVES CON DEGRADADO
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+//EFECTO MAQUINA DE ESCRIBIR EJEMPLO "LISTO" //
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efecto Typewriter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    
+    h1 {
+      text-align: center;
+      margin: 0;
+    }
+
+    .typewrite > .wrap {
+      border-right: 0.08em solid #a3c644; /* Color de la barra del cursor */
+      color: #a3c644; /* Color del texto */
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      display: inline-block;
+      min-width: 5ch; /* Ancho fijo */
+      text-align: center;
+      animation: blink 0.9s step-end infinite; /* Animación más lenta para el cursor */
+    }
+
+    /* Animación de parpadeo para el cursor */
+    @keyframes blink {
+      0%, 50% {
+        border-color: transparent;
+      }
+      51%, 100% {
+        border-color: #a3c644;
+      }
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .typewrite > .wrap {
+        font-size: 45px; /* Ajuste para pantallas pequeñas */
+        min-width: 5ch; /* Mantener el ancho */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <p href="" class="typewrite" data-period="3000" data-type='[ "LISTO", "LISTO" ]'>
+      <span class="wrap"></span>
+    </p>
+  </h1>
+
+  <script>
+    var TxtType = function(el, toRotate, period) {
+      this.toRotate = toRotate;
+      this.el = el;
+      this.loopNum = 0;
+      this.period = parseInt(period, 10) || 3000; // Periodo más largo entre palabras
+      this.txt = '';
+      this.tick();
+      this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+      var i = this.loopNum % this.toRotate.length;
+      var fullTxt = this.toRotate[i];
+
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+      var that = this;
+      var delta = 400; // Tiempo más lento para escribir cada carácter
+
+      if (this.isDeleting) {
+        delta /= 2; // Tiempo más rápido para borrar
+      }
+
+      if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period; // Pausa más larga al final de la palabra
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 700; // Pausa entre ciclos
+      }
+
+      setTimeout(function() {
+        that.tick();
+      }, delta);
+    };
+
+    window.onload = function() {
+      var elements = document.getElementsByClassName('typewrite');
+      for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+      }
+    };
+  </script>
+</body>
+</html>
+
 
 

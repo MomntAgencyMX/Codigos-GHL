@@ -1281,3 +1281,14 @@ SLIDER PARA ABOVES CON DEGRADADO
         transform: scale(1);
     }
 }
+
+// CAMBIAR COLOR DE PLACE HOLDER DE FORMULARIOS // 
+
+#phone::placeholder {
+  color: white !important;
+  opacity: 1 !important;
+}
+
+.countryphone::placeholder {
+  color: white !important;
+}

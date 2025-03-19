@@ -1292,3 +1292,7 @@ SLIDER PARA ABOVES CON DEGRADADO
 .countryphone::placeholder {
   color: white !important;
 }
+
+.form-control::placeholder {
+    color: white !important;
+}

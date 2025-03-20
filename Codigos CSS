@@ -1296,3 +1296,21 @@ SLIDER PARA ABOVES CON DEGRADADO
 .form-control::placeholder {
     color: white !important;
 }
+
+// MODIFICACION PARA QUE EL FORMULARIO EN CALENDARIO SE VEA MEJOR //
+<style>
+@media only screen and (max-width: 768px) {
+    /* Subir el formulario */
+    #_builder-form.form-builder--wrap {
+        margin-top: -30px !important;
+        margin-bottom: -100px !important;
+    }
+  
+.appointment_widgets-sm--revamp .appointment_widgets--revamp--booking #_builder-form .fields-container {
+    padding: 0 0px !important;
+}
+    
+ #schedule-meeting-button {
+margin-bottom: 45px !important;
+}
+</style>

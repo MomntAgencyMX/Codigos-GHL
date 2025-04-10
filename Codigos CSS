@@ -1314,3 +1314,190 @@ SLIDER PARA ABOVES CON DEGRADADO
 margin-bottom: 45px !important;
 }
 </style>
+
+///  POP UP TIPO SHEIN ////
+
+<style>
+  /* Fondo oscuro */
+  #popup-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9997;
+  }
+
+  /* Contenedor general del popup */
+  #popup-wrapper {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+
+  /* Moño fuera del popup */
+  #popup-ribbon-container {
+    display: none;
+    position: fixed;
+    top: calc(50% - 270px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+  #popup-ribbon-container img {
+    width: 400px;
+    max-width: 90vw;
+  }
+
+  /* Caja blanca del popup */
+  #popup-oferta {
+    background: linear-gradient(to bottom, #ffe5d1 0px, #fff 90px, #fff 100%);
+    padding: 30px 20px 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    max-width: 90vw;
+    width: 400px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Título */
+  .popup-titulo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1ba76a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  /* Logo */
+  .popup-logo {
+    width: 80px;
+    max-width: 100%;
+    margin: 10px auto 15px auto;
+    display: block;
+  }
+
+  /* Oferta */
+  #popup-oferta p {
+    font-size: 21px;
+    font-weight: bold;
+    color: #222;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Botón verde */
+  #popup-oferta button {
+    margin-top: 20px;
+    background-color: #1ba76a;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+  }
+
+  #popup-oferta button:hover {
+    background-color: #158c57;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 22px;
+    color: #999;
+    cursor: pointer;
+  }
+
+  .popup-close:hover {
+    color: #333;
+  }
+
+  /* 🔧 Estilos para celular */
+  @media (max-width: 480px) {
+    #popup-ribbon-container {
+      top: calc(50% - 235px);
+    }
+
+    #popup-ribbon-container img {
+      width: 400px;
+    }
+
+    #popup-oferta {
+      width: 90vw;
+    }
+
+    .popup-logo {
+      width: 60px;
+    }
+
+    #popup-oferta p {
+      font-size: 19px;
+    }
+
+    #popup-oferta button {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<!-- Fondo oscuro -->
+<div id="popup-backdrop"></div>
+
+<!-- Moño fuera del popup -->
+<div id="popup-ribbon-container">
+  <img src="https://storage.googleapis.com/msgsndr/FSFWksgQn4nxtoKdFTJp/media/67f8339463dd2eb03c4d12d0.png" alt="Oferta Moño">
+</div>
+
+<!-- Popup blanco -->
+<div id="popup-wrapper">
+  <div id="popup-oferta">
+    <div class="popup-close" onclick="cerrarPopup()">×</div>
+
+    <div class="popup-titulo">Oferta especial solo para ti</div>
+
+    <!-- Logo del desarrollo -->
+    <img class="popup-logo" src="https://storage.googleapis.com/msgsndr/FSFWksgQn4nxtoKdFTJp/media/672d4209aeeab5277100c4e8.webp" alt="Logo del desarrollo">
+
+    <!-- Oferta en un solo párrafo -->
+    <p>
+      ¡Agenda HOY una cita virtual y al presentarte obtendrás un GRAN descuento de hasta $850,000 MXN en tu nuevo departamento!
+    </p>
+
+    <button onclick="cerrarPopup(); document.getElementById('section-g5wFQ4C-a5').scrollIntoView({ behavior: 'smooth' })">
+      ¡Conoce La Oferta!
+    </button>
+  </div>
+</div>
+
+<script>
+  function mostrarPopup() {
+    document.getElementById('popup-backdrop').style.display = 'block';
+    document.getElementById('popup-wrapper').style.display = 'block';
+    document.getElementById('popup-ribbon-container').style.display = 'block';
+  }
+
+  function cerrarPopup() {
+    document.getElementById('popup-backdrop').style.display = 'none';
+    document.getElementById('popup-wrapper').style.display = 'none';
+    document.getElementById('popup-ribbon-container').style.display = 'none';
+  }
+
+  setTimeout(mostrarPopup, 5000);
+</script>
+
